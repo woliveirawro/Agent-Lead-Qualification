@@ -12,8 +12,7 @@
     <header class="main-header">
         <div class="container header-content">
             <div class="logo-placeholder">
-                <img src="MKT_Agent_Leads.png" alt="Logo Engineering Brasil" class="company-logo">
-            </div>
+                </div>
             <div class="header-text">
                 <h1>Qualificação Automatizada de Leads</h1>
                 <p>DHuO API Plus: Assertividade no Funil com Automação</p>
@@ -24,52 +23,52 @@
     <main>
         <section id="poc-structure" class="section-container">
             <div class="container">
-                <h2 class="section-title">Estrutura da POC para Qualificação Automatizada de Leads com GCP e MegaAPI</h2>
+                <h2 class="section-title">Estrutura da POC</h2>
+                <span class="subtitle-intro">Para Qualificação Automatizada de Leads com GCP e MegaAPI</span>
 
                 <div class="intro-text">
-                    <p>Esta Prova de Conceito (POC) visa validar a viabilidade técnica e a eficácia de um fluxo automatizado de qualificação de leads, utilizando um agente conversacional no WhatsApp (integrado via MegaAPI) no GCP, para coletar informações, qualificar leads com base em ICP/Personas e sugerir agendamento de reuniões, minimizando o esforço manual e aumentando a assertividade no funil de vendas.</p>
+                    <p>Esta Prova de Conceito (POC) visa validar a viabilidade técnica e a eficácia de um fluxo automatizado de qualificação de leads, utilizando um agente conversacional no WhatsApp (integrado via MegaAPI) no Google Cloud Platform (GCP). Nosso objetivo é coletar informações essenciais, qualificar leads com base em ICP/Personas e sugerir agendamento de reuniões, minimizando o esforço manual e aumentando a assertividade no funil de vendas.</p>
                 </div>
 
                 <h3 class="subsection-title">1. Objetivo da POC</h3>
-                <p>Validar a viabilidade técnica e a eficácia de um fluxo automatizado de qualificação de leads, utilizando um agente conversacional no WhatsApp (integrado via MegaAPI) no GCP, para coletar informações, qualificar leads com base em ICP/Personas e sugerir agendamento de reuniões, minimizando o esforço manual.</p>
+                <p>Validar a implementação de um fluxo automatizado que eficientemente qualifique leads, focando na otimização de recursos e na melhoria da experiência do cliente através do uso de tecnologias avançadas.</p>
 
                 <h3 class="subsection-title">2. Componentes GCP e Soluções Propostas</h3>
                 <div class="component-grid">
                     <div class="component-card">
                         <i class="fas fa-robot icon-large"></i>
-                        <h4>Agente Conversacional (Chatbot)</h4>
-                        <p><strong>Dialogflow CX:</strong> Para construir o agente conversacional robusto e complexo. Ideal para conversas longas e com múltiplos tópicos, gerenciando fluxos, estados e transições de forma visual e intuitiva.</p>
+                        <h4>Agente Conversacional</h4>
+                        <p><strong>Dialogflow CX:</strong> Construção do chatbot robusto para interações complexas e fluxos de conversa dinâmicos.</p>
                     </div>
                     <div class="component-card">
                         <i class="fab fa-whatsapp icon-large"></i>
                         <h4>Integração WhatsApp</h4>
-                        <p><strong>MegaAPI:</strong> Gateway para o WhatsApp Business API. Dialogflow CX enviará e receberá mensagens através da MegaAPI.</p>
-                        <p><strong>Cloud Functions (ou Cloud Run):</strong> Atuam como um <em>webhook</em> entre a MegaAPI e o Dialogflow CX, encaminhando mensagens.</p>
+                        <p><strong>MegaAPI & Cloud Functions:</strong> Gateway para o WhatsApp Business API, com funções para gerenciar webhooks e comunicação.</p>
                     </div>
                     <div class="component-card">
                         <i class="fas fa-database icon-large"></i>
-                        <h4>Armazenamento e Processamento de Dados</h4>
-                        <p><strong>Firestore (NoSQL Database):</strong> Para armazenar interações, respostas do lead, status de qualificação e score do lead. Flexível e escalável para dados semi-estruturados.</p>
+                        <h4>Armazenamento de Dados</h4>
+                        <p><strong>Firestore:</strong> Banco de dados NoSQL escalável para interações, respostas e status de qualificação dos leads.</p>
                     </div>
                     <div class="component-card">
                         <i class="fas fa-cogs icon-large"></i>
-                        <h4>Lógica de Qualificação e Pontuação</h4>
-                        <p><strong>Cloud Functions (ou Cloud Run):</strong> Funções <em>serverless</em> acionadas pelo Dialogflow CX ou Firestore para processar respostas, aplicar lógica de pontuação (ICP, Personas, BANT) e atualizar score/status.</p>
+                        <h4>Lógica de Qualificação</h4>
+                        <p><strong>Cloud Functions:</strong> Aplicação de regras de ICP, Personas e BANT para pontuação e atualização de status.</p>
                     </div>
                     <div class="component-card">
                         <i class="fas fa-sync-alt icon-large"></i>
-                        <h4>Integração com CRM (RD Station)</h4>
-                        <p><strong>Cloud Functions (ou Cloud Run):</strong> Orquestram a comunicação entre GCP e RD Station, enviando webhooks ou usando APIs para criar/atualizar leads com informações e score.</p>
+                        <h4>Integração CRM</h4>
+                        <p><strong>Cloud Functions:</strong> Conexão e atualização de leads no RD Station ou CRM existente com dados qualificados.</p>
                     </div>
                     <div class="component-card">
                         <i class="fas fa-search-plus icon-large"></i>
-                        <h4>Enriquecimento de Dados (Opcional na POC)</h4>
-                        <p>Considerar uso de APIs de terceiros para enriquecimento de dados de CNPJ (faturamento, setor) dentro de uma Cloud Function.</p>
+                        <h4>Enriquecimento de Dados</h4>
+                        <p><strong>APIs de Terceiros:</strong> Opcional na POC, para enriquecer dados de CNPJ e perfil empresarial.</p>
                     </div>
                     <div class="component-card">
                         <i class="fas fa-calendar-alt icon-large"></i>
                         <h4>Agendamento de Reuniões</h4>
-                        <p><strong>Ferramenta de Agendamento (ex: Calendly):</strong> Dialogflow CX pode fornecer um link de agendamento ou interagir com API via Cloud Function para leads qualificados.</p>
+                        <p><strong>Ferramenta Dedicada:</strong> Integração para oferecer links de agendamento automáticos aos leads qualificados.</p>
                     </div>
                 </div>
 
@@ -81,7 +80,6 @@
                         **Espaço para o Diagrama de Arquitetura da Solução**
                     </p>
                     <p>
-                   
                         Imagem do diagrama de arquitetura que ilustra o fluxo de dados e a interação entre RD Station, MegaAPI, Dialogflow CX, Cloud Functions, Firestore e CRM.
                         <img src="images/MKT_Agent_Leads.png" alt="Diagrama de Arquitetura" class="responsive-image">
                     </p>
@@ -120,58 +118,136 @@
             </div>
         </section>
 
-        <section id="mvp-plan" class="section-container section-alt">
+        <section id="financial-estimation" class="section-container section-alt">
+            <div class="container">
+                <h2 class="section-title">Estimativa Financeira</h2>
+                <span class="subtitle-intro">Custos Mensais para o Projeto DHuO API Plus</span>
+
+                <div class="intro-text">
+                    <p>A análise financeira abaixo detalha os custos mensais esperados para a operação do MVP, considerando os cenários de volume de leads base e de pico. O principal componente de custo será a taxa fixa do plano da MegaAPI, enquanto os serviços do Google Cloud Platform (GCP) deverão ser cobertos pelas camadas gratuitas para o volume de uso projetado.</p>
+                </div>
+
+                <div class="cost-table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Serviço / Cenário</th>
+                                <th>Custo Mensal Estimado (Mês Base)</th>
+                                <th>Custo Mensal Estimado (Mês de Pico)</th>
+                                <th>Observações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>**MegaAPI (Plano Start)**</td>
+                                <td>R$ 99,90</td>
+                                <td>R$ 99,90</td>
+                                <td>Custo fixo mensal, mensagens ilimitadas.</td>
+                            </tr>
+                            <tr>
+                                <td>GCP (Dialogflow CX)</td>
+                                <td>R$ 0,00</td>
+                                <td>R$ 0,00</td>
+                                <td>Coberto pela camada gratuita de 10.000 Text Requests/mês.</td>
+                            </tr>
+                            <tr>
+                                <td>GCP (Cloud Functions)</td>
+                                <td>R$ 0,00</td>
+                                <td>R$ 0,00</td>
+                                <td>Coberto pela camada gratuita de 2 milhões de invocações/mês.</td>
+                            </tr>
+                            <tr>
+                                <td>GCP (Firestore)</td>
+                                <td>R$ 0,00</td>
+                                <td>R$ 0,00</td>
+                                <td>Coberto pela camada gratuita de 50.000 operações/dia e 1GB.</td>
+                            </tr>
+                            <tr>
+                                <td>GCP (Outros Serviços)</td>
+                                <td>R$ 0,00 (Desprezível)</td>
+                                <td>R$ 0,00 (Desprezível)</td>
+                                <td>Custos de Log, Monitoramento e Rede são mínimos.</td>
+                            </tr>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <td>**Custo Total Mensal**</td>
+                                <td>**R$ 99,90**</td>
+                                <td>**R$ 99,90**</td>
+                                <td>O custo mensal é dominado pelo plano fixo da MegaAPI.</td>
+                            </tr>
+                        </tfoot>
+                    </table>
+                </div>
+                <p class="disclaimer-text">**Disclaimer:** Esta estimativa é baseada nos dados disponíveis e na compreensão dos modelos de precificação. Custos reais podem variar. Para uma precificação exata, consulte diretamente a MegaAPI e utilize a calculadora de custos do Google Cloud para simular cenários específicos.</p>
+            </div>
+        </section>
+        <section id="mvp-plan" class="section-container">
             <div class="container">
                 <h2 class="section-title">Plano Faseado de Implantação do MVP</h2>
-                <h3 class="subtitle">Qualificação Automatizada de Leads DHuO API Plus</h3>
+                <span class="subtitle-intro">Qualificação Automatizada de Leads DHuO API Plus</span>
                 <p class="section-description">**Objetivo Geral do MVP:** Validar o fluxo de qualificação automatizada de leads via WhatsApp, aplicando critérios de ICP/Persona/BANT e sugerindo agendamento de reuniões, com foco em um volume controlado de leads para aprendizado e otimização.</p>
 
-                <div class="phase-card">
-                    <h3>Fase 1: Preparação e Configuração Essencial <span class="phase-duration">(1-2 semanas)</span></h3>
-                    <p class="phase-objective">**Objetivo:** Estabelecer a infraestrutura básica e as integrações fundamentais para o funcionamento do MVP.</p>
-                    <ul>
-                        <li><i class="fas fa-cloud"></i> **Configuração do Ambiente GCP:** Criação do Projeto GCP e habilitação das APIs necessárias.</li>
-                        <li><i class="fas fa-key"></i> **Configuração da MegaAPI:** Obtenção e configuração das credenciais e tokens.</li>
-                        <li><i class="fas fa-database"></i> **Estrutura Inicial do Firestore:** Criação das coleções e esquema básico para dados de leads e interações.</li>
-                        <li><i class="fas fa-code"></i> **Desenvolvimento das Cloud Functions Essenciais:** `rdstation_webhook_receiver` e `megaapi_webhook_receiver`.</li>
-                        <li><i class="fas fa-cogs"></i> **Configuração Inicial do RD Station:** Automação para enviar webhook ao GCP.</li>
-                        <li><i class="fas fa-clipboard-list"></i> **Definição dos Critérios de ICP/Persona/BANT para o MVP:** Simplificação e priorização das perguntas do `Qualificação_DHuO_API.docx`.</li>
-                    </ul>
-                </div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content phase-card">
+                            <h3>Fase 1: Preparação e Configuração Essencial <span class="phase-duration">(1-2 semanas)</span></h3>
+                            <p class="phase-objective">**Objetivo:** Estabelecer a infraestrutura básica e as integrações fundamentais para o funcionamento do MVP.</p>
+                            <ul>
+                                <li><i class="fas fa-cloud"></i> **Configuração do Ambiente GCP:** Criação do Projeto GCP e habilitação das APIs necessárias.</li>
+                                <li><i class="fas fa-key"></i> **Configuração da MegaAPI:** Obtenção e configuração das credenciais e tokens.</li>
+                                <li><i class="fas fa-database"></i> **Estrutura Inicial do Firestore:** Criação das coleções e esquema básico para dados de leads e interações.</li>
+                                <li><i class="fas fa-code"></i> **Desenvolvimento das Cloud Functions Essenciais:** `rdstation_webhook_receiver` e `megaapi_webhook_receiver`.</li>
+                                <li><i class="fas fa-cogs"></i> **Configuração Inicial do RD Station:** Automação para enviar webhook ao GCP.</li>
+                                <li><i class="fas fa-clipboard-list"></i> **Definição dos Critérios de ICP/Persona/BANT para o MVP:** Simplificação e priorização das perguntas do `Qualificação_DHuO_API.docx`.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <div class="phase-card">
-                    <h3>Fase 2: Construção do Chatbot e Lógica de Qualificação <span class="phase-duration">(3-4 semanas)</span></h3>
-                    <p class="phase-objective">**Objetivo:** Desenvolver o agente conversacional no Dialogflow CX e implementar a lógica central de qualificação.</p>
-                    <ul>
-                        <li><i class="fas fa-comments"></i> **Desenvolvimento do Agente Dialogflow CX:** Criação de fluxos, intents e parâmetros para o questionário de qualificação.</li>
-                        <li><i class="fas fa-brain"></i> **Desenvolvimento da Cloud Function de Lógica de Qualificação (`lead_qualifier_function`):** Implementação da pontuação ICP/Persona/BANT e atualização de status no Firestore.</li>
-                        <li><i class="fas fa-link"></i> **Integração Dialogflow CX <=> Cloud Functions:** Configuração de webhooks para comunicação bidirecional.</li>
-                        <li><i class="fas fa-calendar-plus"></i> **Implementação do Agendamento de Reuniões:** Envio de link de agendamento via WhatsApp para MQLs.</li>
-                    </ul>
-                </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content phase-card">
+                            <h3>Fase 2: Construção do Chatbot e Lógica de Qualificação <span class="phase-duration">(3-4 semanas)</span></h3>
+                            <p class="phase-objective">**Objetivo:** Desenvolver o agente conversacional no Dialogflow CX e implementar a lógica central de qualificação.</p>
+                            <ul>
+                                <li><i class="fas fa-comments"></i> **Desenvolvimento do Agente Dialogflow CX:** Criação de fluxos, intents e parâmetros para o questionário de qualificação.</li>
+                                <li><i class="fas fa-brain"></i> **Desenvolvimento da Cloud Function de Lógica de Qualificação (`lead_qualifier_function`):** Implementação da pontuação ICP/Persona/BANT e atualização de status no Firestore.</li>
+                                <li><i class="fas fa-link"></i> **Integração Dialogflow CX <=> Cloud Functions:** Configuração de webhooks para comunicação bidirecional.</li>
+                                <li><i class="fas fa-calendar-plus"></i> **Implementação do Agendamento de Reuniões:** Envio de link de agendamento via WhatsApp para MQLs.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <div class="phase-card">
-                    <h3>Fase 3: Testes, Ajustes e Rollout Controlado <span class="phase-duration">(2-3 semanas)</span></h3>
-                    <p class="phase-objective">**Objetivo:** Validar a funcionalidade completa do MVP, coletar feedback e lançar para um grupo limitado de leads.</p>
-                    <ul>
-                        <li><i class="fas fa-vial"></i> **Testes de Ponta a Ponta:** Simulação completa do fluxo do lead.</li>
-                        <li><i class="fas fa-magic"></i> **Refinamento do Chatbot:** Ajustes na clareza das perguntas e interpretação de respostas.</li>
-                        <li><i class="fas fa-sliders-h"></i> **Otimização da Lógica de Qualificação:** Ajustes nos pesos e regras de pontuação.</li>
-                        <li><i class="fas fa-sync-alt"></i> **Configuração da Atualização do CRM:** Desenvolver e testar Cloud Function para atualizar RD Station (ou CRM).</li>
-                        <li><i class="fas fa-chalkboard-teacher"></i> **Treinamento da Samara e Equipe de Vendas (MVP):** Apresentação do novo fluxo e acesso às informações.</li>
-                        <li><i class="fas fa-rocket"></i> **Lançamento Controlado do MVP:** Ativação para um volume limitado de leads.</li>
-                    </ul>
-                </div>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content phase-card">
+                            <h3>Fase 3: Testes, Ajustes e Rollout Controlado <span class="phase-duration">(2-3 semanas)</span></h3>
+                            <p class="phase-objective">**Objetivo:** Validar a funcionalidade completa do MVP, coletar feedback e lançar para um grupo limitado de leads.</p>
+                            <ul>
+                                <li><i class="fas fa-vial"></i> **Testes de Ponta a Ponta:** Simulação completa do fluxo do lead.</li>
+                                <li><i class="fas fa-magic"></i> **Refinamento do Chatbot:** Ajustes na clareza das perguntas e interpretação de respostas.</li>
+                                <li><i class="fas fa-sliders-h"></i> **Otimização da Lógica de Qualificação:** Ajustes nos pesos e regras de pontuação.</li>
+                                <li><i class="fas fa-sync-alt"></i> **Configuração da Atualização do CRM:** Desenvolver e testar Cloud Function para atualizar RD Station (ou CRM).</li>
+                                <li><i class="fas fa-chalkboard-teacher"></i> **Treinamento da Samara e Equipe de Vendas (MVP):** Apresentação do novo fluxo e acesso às informações.</li>
+                                <li><i class="fas fa-rocket"></i> **Lançamento Controlado do MVP:** Ativação para um volume limitado de leads.</li>
+                            </ul>
+                        </div>
+                    </div>
 
-                <div class="phase-card">
-                    <h3>Fase 4: Monitoramento e Otimização Contínua <span class="phase-duration">(Contínuo)</span></h3>
-                    <p class="phase-objective">**Objetivo:** Acompanhar o desempenho do MVP, coletar feedback do mundo real e implementar melhorias incrementais.</p>
-                    <ul>
-                        <li><i class="fas fa-chart-bar"></i> **Monitoramento de KPIs:** Acompanhamento diário/semanal das métricas definidas.</li>
-                        <li><i class="fas fa-comments"></i> **Coleta de Feedback:** Reuniões regulares com a equipe de vendas.</li>
-                        <li><i class="fas fa-lightbulb"></i> **Otimização Iterativa:** Ajustes na lógica de pontuação e chatbot.</li>
-                        <li><i class="fas fa-expand-alt"></i> **Escalabilidade e Produção:** Planejamento de expansão futura.</li>
-                    </ul>
+                    <div class="timeline-item">
+                        <div class="timeline-dot"></div>
+                        <div class="timeline-content phase-card">
+                            <h3>Fase 4: Monitoramento e Otimização Contínua <span class="phase-duration">(Contínuo)</span></h3>
+                            <p class="phase-objective">**Objetivo:** Acompanhar o desempenho do MVP, coletar feedback do mundo real e implementar melhorias incrementais.</p>
+                            <ul>
+                                <li><i class="fas fa-chart-bar"></i> **Monitoramento de KPIs:** Acompanhamento diário/semanal das métricas definidas.</li>
+                                <li><i class="fas fa-comments"></i> **Coleta de Feedback:** Reuniões regulares com a equipe de vendas.</li>
+                                <li><i class="fas fa-lightbulb"></i> **Otimização Iterativa:** Ajustes na lógica de pontuação e chatbot.</li>
+                                <li><i class="fas fa-expand-alt"></i> **Escalabilidade e Produção:** Planejamento de expansão futura.</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
@@ -182,10 +258,5 @@
             <p>&copy; 2025 Engineering Brasil. Todos os direitos reservados.</p>
         </div>
     </footer>
-
-    <script>
-        // JavaScript para interatividade, se necessário.
-        // Ex: Smooth scroll para seções, animações ao rolar, etc.
-    </script>
 </body>
 </html>
