@@ -1,0 +1,442 @@
+/* Variáveis de Cores */
+:root {
+    --azul-petroleo: #2D4B60; /* Cor principal escura */
+    --azul-bebe: #A8DADC;    /* Cor de destaque clara */
+    --branco: #FFFFFF;       /* Fundo principal, texto em áreas escuras */
+    --azul-escuro-texto: #0A2342; /* Texto principal e subtítulos */
+    --cinza-claro: #F8F8F8;  /* Fundo de seções alternadas */
+    --sombra-leve: rgba(0, 0, 0, 0.08);
+    --sombra-media: rgba(0, 0, 0, 0.15);
+}
+
+/* Estilos Globais */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--branco);
+    color: var(--azul-escuro-texto);
+    line-height: 1.7; /* Aumentado para melhor legibilidade */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cabeçalho Principal */
+.main-header {
+    background-color: var(--azul-petroleo);
+    color: var(--branco);
+    padding: 60px 0; /* Aumentado para mais respiro */
+    text-align: center;
+    box-shadow: 0 6px 15px var(--sombra-media); /* Sombra mais pronunciada */
+    position: relative; /* Para possíveis elementos de design futuros */
+    overflow: hidden; /* Para garantir que nada vaze */
+}
+
+.main-header h1 {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif; /* Fonte de destaque */
+    font-size: 3.2em; /* Aumentado */
+    font-weight: 700;
+    letter-spacing: -1px;
+}
+
+.main-header p {
+    font-size: 1.3em; /* Aumentado */
+    margin-top: 15px;
+    font-weight: 300;
+    opacity: 0.9;
+}
+
+/* Seções de Conteúdo */
+.section-container {
+    padding: 80px 0; /* Aumentado para mais espaço */
+    border-bottom: 1px solid #eee;
+}
+
+.section-container:last-of-type {
+    border-bottom: none;
+}
+
+.section-title { /* Novo estilo para títulos de seção */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.8em;
+    color: var(--azul-petroleo);
+    text-align: center;
+    margin-bottom: 60px; /* Aumentado */
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 100px; /* Mais largo */
+    height: 5px; /* Mais espesso */
+    background-color: var(--azul-bebe);
+    border-radius: 3px;
+}
+
+.subsection-title { /* Novo estilo para subtítulos */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2em;
+    color: var(--azul-escuro-texto);
+    margin-top: 50px; /* Mais espaço acima */
+    margin-bottom: 25px;
+    border-left: 6px solid var(--azul-bebe); /* Borda mais grossa */
+    padding-left: 20px; /* Mais padding */
+    font-weight: 700;
+}
+
+.intro-text {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    font-size: 1.15em;
+    line-height: 1.8;
+    color: #444;
+}
+
+/* Seção Alternada */
+.section-alt {
+    background-color: var(--cinza-claro);
+}
+
+/* Componentes Grid (para Estrutura da POC) */
+.component-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min-width ajustado */
+    gap: 35px; /* Mais espaçamento */
+    margin-top: 40px;
+}
+
+.component-card {
+    background-color: var(--branco);
+    border-radius: 12px; /* Bordas mais arredondadas */
+    box-shadow: 0 6px 20px var(--sombra-leve); /* Sombra mais suave */
+    padding: 30px; /* Mais padding */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex; /* Para alinhar ícone e texto */
+    flex-direction: column;
+    align-items: center; /* Centralizar conteúdo */
+    text-align: center;
+}
+
+.component-card:hover {
+    transform: translateY(-8px); /* Mais deslocamento */
+    box-shadow: 0 10px 30px var(--sombra-media); /* Sombra mais pronunciada no hover */
+}
+
+.component-card .icon-large { /* Estilo para ícones */
+    font-size: 3.5em; /* Tamanho maior */
+    color: var(--azul-bebe);
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+}
+
+.component-card:hover .icon-large {
+    color: var(--azul-petroleo); /* Mudar cor no hover */
+}
+
+
+.component-card h4 {
+    color: var(--azul-petroleo);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em; /* Aumentado */
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 3px solid var(--azul-bebe); /* Borda mais grossa */
+    padding-bottom: 8px;
+    width: fit-content; /* Ajusta a largura da borda ao texto */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.component-card p {
+    font-size: 0.95em;
+    color: #555;
+}
+
+/* Diagrama Placeholder */
+.diagram-placeholder {
+    background-color: var(--cinza-claro);
+    border: 2px dashed var(--azul-bebe);
+    border-radius: 10px;
+    padding: 40px;
+    margin: 50px auto;
+    text-align: center;
+    color: var(--azul-escuro-texto);
+    font-style: italic;
+    max-width: 900px;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+}
+
+.diagram-placeholder p {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    line-height: 1.6;
+}
+
+.diagram-placeholder .icon-large {
+    font-size: 4em;
+    color: var(--azul-petroleo);
+    margin: 10px;
+}
+
+.responsive-image {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 20px auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Listas de Fluxo e Passos */
+.flow-list, .steps-list, .metrics-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 30px;
+}
+
+.flow-list li, .steps-list li, .metrics-list li {
+    background-color: var(--branco);
+    margin-bottom: 15px; /* Mais espaçamento */
+    padding: 20px 25px; /* Mais padding */
+    border-left: 6px solid var(--azul-bebe); /* Borda mais grossa */
+    border-radius: 8px; /* Mais arredondado */
+    box-shadow: 0 3px 10px var(--sombra-leve); /* Sombra mais suave */
+    transition: background-color 0.2s ease, transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    font-size: 1.05em;
+}
+
+.flow-list li:hover, .steps-list li:hover, .metrics-list li:hover {
+    background-color: var(--cinza-claro);
+    transform: translateX(5px); /* Pequeno deslocamento */
+}
+
+.flow-list li strong {
+    color: var(--azul-petroleo);
+    font-family: 'Montserrat', sans-serif;
+    margin-right: 8px;
+}
+
+.steps-list li i, .metrics-list li i { /* Ícones nas listas */
+    font-size: 1.5em;
+    color: var(--azul-bebe);
+    margin-right: 15px;
+    min-width: 30px; /* Garante alinhamento */
+    text-align: center;
+}
+
+
+/* Cards de Fases do Plano */
+.phase-card {
+    background-color: var(--branco);
+    border-radius: 15px; /* Mais arredondado */
+    box-shadow: 0 8px 25px var(--sombra-media); /* Sombra mais forte */
+    margin-bottom: 50px; /* Mais espaçamento */
+    padding: 40px; /* Mais padding */
+    border-left: 10px solid var(--azul-petroleo); /* Borda mais grossa */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.phase-card:hover {
+    transform: translateY(-10px); /* Mais deslocamento */
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3); /* Sombra ainda mais forte no hover */
+}
+
+.phase-card h3 {
+    color: var(--azul-petroleo);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.2em; /* Aumentado */
+    margin-top: 0;
+    margin-bottom: 20px;
+    border-left: none;
+    padding-left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Para alinhar duração à direita */
+}
+
+.phase-card .phase-duration {
+    font-size: 0.9em;
+    color: var(--azul-escuro-texto);
+    background-color: var(--azul-bebe);
+    padding: 8px 15px;
+    border-radius: 20px; /* Mais arredondado */
+    font-weight: 700;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.phase-card .phase-objective {
+    font-style: italic;
+    color: #555;
+    margin-bottom: 30px;
+    font-size: 1.1em;
+}
+
+.phase-card ul {
+    list-style: none; /* Remove bullet padrão */
+    padding-left: 0;
+}
+
+.phase-card ul li {
+    margin-bottom: 12px;
+    font-size: 1.05em;
+    color: #444;
+    display: flex;
+    align-items: flex-start;
+}
+
+.phase-card ul li i { /* Ícones nas listas de fases */
+    font-size: 1.4em;
+    color: var(--azul-bebe);
+    margin-right: 12px;
+    min-width: 25px; /* Garante alinhamento */
+    text-align: center;
+    padding-top: 2px; /* Ajuste vertical */
+}
+
+/* Descrição de Seção */
+.section-description {
+    text-align: center;
+    font-style: italic;
+    margin-bottom: 40px;
+    color: #555;
+    font-size: 1.2em;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Rodapé */
+.main-footer {
+    background-color: var(--azul-petroleo);
+    color: var(--branco);
+    text-align: center;
+    padding: 40px 0; /* Mais padding */
+    margin-top: 60px;
+    font-size: 0.95em;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+    .main-header h1 {
+        font-size: 2.5em;
+    }
+    .section-title {
+        font-size: 2.2em;
+    }
+    .subsection-title {
+        font-size: 1.7em;
+    }
+    .phase-card h3 {
+        font-size: 1.8em;
+        flex-direction: column; /* Empilha título e duração */
+        align-items: flex-start;
+    }
+    .phase-card .phase-duration {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-header h1 {
+        font-size: 2em;
+    }
+    .main-header p {
+        font-size: 1em;
+    }
+    .section-container {
+        padding: 40px 0;
+    }
+    .section-title {
+        font-size: 1.8em;
+        margin-bottom: 40px;
+    }
+    .subsection-title {
+        font-size: 1.4em;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        padding-left: 10px;
+        border-left: 4px solid var(--azul-bebe);
+    }
+    .intro-text, .section-description {
+        font-size: 1em;
+        margin-bottom: 30px;
+    }
+    .component-grid {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+    .component-card {
+        padding: 20px;
+    }
+    .component-card .icon-large {
+        font-size: 2.8em;
+    }
+    .component-card h4 {
+        font-size: 1.2em;
+    }
+    .flow-list li, .steps-list li, .metrics-list li {
+        padding: 15px 20px;
+        font-size: 0.95em;
+    }
+    .steps-list li i, .metrics-list li i, .phase-card ul li i {
+        font-size: 1.2em;
+        margin-right: 10px;
+        min-width: 20px;
+    }
+    .phase-card {
+        padding: 25px;
+        margin-bottom: 30px;
+    }
+    .phase-card h3 {
+        font-size: 1.6em;
+    }
+    .phase-card .phase-duration {
+        padding: 5px 10px;
+        font-size: 0.8em;
+    }
+    .phase-card .phase-objective {
+        font-size: 1em;
+        margin-bottom: 20px;
+    }
+    .phase-card ul li {
+        font-size: 0.95em;
+    }
+    .diagram-placeholder {
+        padding: 30px;
+        margin: 30px auto;
+    }
+    .diagram-placeholder .icon-large {
+        font-size: 3em;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-header h1 {
+        font-size: 1.6em;
+    }
+    .section-title {
+        font-size: 1.5em;
+    }
+    .subsection-title {
+        font-size: 1.2em;
+    }
+    .component-card h4 {
+        font-size: 1.1em;
+    }
+}
