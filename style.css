@@ -7,6 +7,7 @@
     --cinza-claro: #F8F8F8;  /* Fundo de seções alternadas */
     --sombra-leve: rgba(0, 0, 0, 0.08);
     --sombra-media: rgba(0, 0, 0, 0.15);
+    --sombra-forte: rgba(0, 0, 0, 0.25);
 }
 
 /* Estilos Globais */
@@ -16,7 +17,8 @@ body {
     padding: 0;
     background-color: var(--branco);
     color: var(--azul-escuro-texto);
-    line-height: 1.7; /* Aumentado para melhor legibilidade */
+    line-height: 1.7;
+    scroll-behavior: smooth; /* Rolagem suave para âncoras futuras */
 }
 
 .container {
@@ -29,46 +31,72 @@ body {
 .main-header {
     background-color: var(--azul-petroleo);
     color: var(--branco);
-    padding: 60px 0; /* Aumentado para mais respiro */
+    padding: 60px 0;
     text-align: center;
-    box-shadow: 0 6px 15px var(--sombra-media); /* Sombra mais pronunciada */
-    position: relative; /* Para possíveis elementos de design futuros */
-    overflow: hidden; /* Para garantir que nada vaze */
+    box-shadow: 0 6px 15px var(--sombra-media);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px; /* Garante uma altura mínima para o header */
+}
+
+.header-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Espaço entre logo e texto */
+}
+
+.company-logo {
+    max-height: 80px; /* Ajuste o tamanho do logo conforme necessário */
+    width: auto;
+    filter: brightness(0) invert(1); /* Deixa o logo branco para se destacar no fundo escuro */
+    transition: transform 0.3s ease;
+}
+
+.company-logo:hover {
+    transform: scale(1.05); /* Pequeno zoom no hover */
 }
 
 .main-header h1 {
     margin: 0;
-    font-family: 'Montserrat', sans-serif; /* Fonte de destaque */
-    font-size: 3.2em; /* Aumentado */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.2em;
     font-weight: 700;
     letter-spacing: -1px;
+    text-shadow: 2px 2px 4px var(--sombra-media); /* Sombra para o texto do título */
 }
 
 .main-header p {
-    font-size: 1.3em; /* Aumentado */
+    font-size: 1.3em;
     margin-top: 15px;
     font-weight: 300;
-    opacity: 0.9;
+    opacity: 0.95;
 }
 
 /* Seções de Conteúdo */
 .section-container {
-    padding: 80px 0; /* Aumentado para mais espaço */
+    padding: 80px 0;
     border-bottom: 1px solid #eee;
+    background-color: var(--branco); /* Garante que o fundo é branco */
 }
 
 .section-container:last-of-type {
     border-bottom: none;
 }
 
-.section-title { /* Novo estilo para títulos de seção */
+.section-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 2.8em;
     color: var(--azul-petroleo);
     text-align: center;
-    margin-bottom: 60px; /* Aumentado */
+    margin-bottom: 60px;
     position: relative;
     padding-bottom: 15px;
+    text-transform: uppercase; /* Deixa o título em maiúsculas */
+    letter-spacing: 1px;
 }
 
 .section-title::after {
@@ -77,22 +105,48 @@ body {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 100px; /* Mais largo */
-    height: 5px; /* Mais espesso */
+    width: 100px;
+    height: 5px;
     background-color: var(--azul-bebe);
     border-radius: 3px;
+    animation: underline-grow 1s forwards; /* Animação simples */
 }
 
-.subsection-title { /* Novo estilo para subtítulos */
+/* Keyframe para animação de sublinhado */
+@keyframes underline-grow {
+    from { width: 0; }
+    to { width: 100px; }
+}
+
+
+.subsection-title {
     font-family: 'Montserrat', sans-serif;
     font-size: 2em;
     color: var(--azul-escuro-texto);
-    margin-top: 50px; /* Mais espaço acima */
+    margin-top: 50px;
     margin-bottom: 25px;
-    border-left: 6px solid var(--azul-bebe); /* Borda mais grossa */
-    padding-left: 20px; /* Mais padding */
-    font-weight: 700;
+    border-left: 6px solid var(--azul-bebe);
+    padding-left: 20px;
+    font-weight: 600; /* Levemente mais bold */
+    position: relative;
+    overflow: hidden;
 }
+
+.subsection-title::before { /* Elemento decorativo */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0;
+    background-color: rgba(168, 218, 220, 0.2); /* Azul bebê transparente */
+    transition: width 0.3s ease-out;
+}
+
+.subsection-title:hover::before {
+    width: 100%;
+}
+
 
 .intro-text {
     text-align: center;
@@ -106,54 +160,57 @@ body {
 /* Seção Alternada */
 .section-alt {
     background-color: var(--cinza-claro);
+    box-shadow: inset 0 5px 15px rgba(0, 0, 0, 0.05), inset 0 -5px 15px rgba(0, 0, 0, 0.05); /* Sombra interna para separar */
 }
 
 /* Componentes Grid (para Estrutura da POC) */
 .component-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Min-width ajustado */
-    gap: 35px; /* Mais espaçamento */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 35px;
     margin-top: 40px;
 }
 
 .component-card {
     background-color: var(--branco);
-    border-radius: 12px; /* Bordas mais arredondadas */
-    box-shadow: 0 6px 20px var(--sombra-leve); /* Sombra mais suave */
-    padding: 30px; /* Mais padding */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Para alinhar ícone e texto */
+    border-radius: 12px;
+    box-shadow: 0 6px 20px var(--sombra-leve);
+    padding: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    display: flex;
     flex-direction: column;
-    align-items: center; /* Centralizar conteúdo */
+    align-items: center;
     text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.05); /* Leve borda */
 }
 
 .component-card:hover {
-    transform: translateY(-8px); /* Mais deslocamento */
-    box-shadow: 0 10px 30px var(--sombra-media); /* Sombra mais pronunciada no hover */
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px var(--sombra-media);
+    background-color: #fcfcfc; /* Leve clareamento */
 }
 
-.component-card .icon-large { /* Estilo para ícones */
-    font-size: 3.5em; /* Tamanho maior */
+.component-card .icon-large {
+    font-size: 3.5em;
     color: var(--azul-bebe);
     margin-bottom: 20px;
     transition: color 0.3s ease;
 }
 
 .component-card:hover .icon-large {
-    color: var(--azul-petroleo); /* Mudar cor no hover */
+    color: var(--azul-petroleo);
 }
 
 
 .component-card h4 {
     color: var(--azul-petroleo);
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.5em; /* Aumentado */
+    font-size: 1.5em;
     margin-top: 0;
     margin-bottom: 15px;
-    border-bottom: 3px solid var(--azul-bebe); /* Borda mais grossa */
+    border-bottom: 3px solid var(--azul-bebe);
     padding-bottom: 8px;
-    width: fit-content; /* Ajusta a largura da borda ao texto */
+    width: fit-content;
     margin-left: auto;
     margin-right: auto;
 }
@@ -175,6 +232,12 @@ body {
     font-style: italic;
     max-width: 900px;
     box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.diagram-placeholder:hover {
+    border-color: var(--azul-petroleo);
+    box-shadow: inset 0 0 25px rgba(0, 0, 0, 0.1);
 }
 
 .diagram-placeholder p {
@@ -195,7 +258,7 @@ body {
     display: block;
     margin: 20px auto;
     border-radius: 8px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 15px var(--sombra-leve);
 }
 
 
@@ -208,64 +271,66 @@ body {
 
 .flow-list li, .steps-list li, .metrics-list li {
     background-color: var(--branco);
-    margin-bottom: 15px; /* Mais espaçamento */
-    padding: 20px 25px; /* Mais padding */
-    border-left: 6px solid var(--azul-bebe); /* Borda mais grossa */
-    border-radius: 8px; /* Mais arredondado */
-    box-shadow: 0 3px 10px var(--sombra-leve); /* Sombra mais suave */
-    transition: background-color 0.2s ease, transform 0.2s ease;
+    margin-bottom: 15px;
+    padding: 20px 25px;
+    border-left: 6px solid var(--azul-bebe);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px var(--sombra-leve);
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
     display: flex;
-    align-items: center;
+    align-items: flex-start; /* Alinha o texto do item no topo */
     font-size: 1.05em;
 }
 
 .flow-list li:hover, .steps-list li:hover, .metrics-list li:hover {
     background-color: var(--cinza-claro);
-    transform: translateX(5px); /* Pequeno deslocamento */
+    transform: translateX(5px);
+    box-shadow: 0 5px 15px var(--sombra-media);
 }
 
 .flow-list li strong {
     color: var(--azul-petroleo);
     font-family: 'Montserrat', sans-serif;
     margin-right: 8px;
+    flex-shrink: 0; /* Impede que o strong encolha */
 }
 
-.steps-list li i, .metrics-list li i { /* Ícones nas listas */
+.steps-list li i, .metrics-list li i {
     font-size: 1.5em;
     color: var(--azul-bebe);
     margin-right: 15px;
-    min-width: 30px; /* Garante alinhamento */
+    min-width: 30px;
     text-align: center;
+    flex-shrink: 0; /* Impede que o ícone encolha */
 }
-
 
 /* Cards de Fases do Plano */
 .phase-card {
     background-color: var(--branco);
-    border-radius: 15px; /* Mais arredondado */
-    box-shadow: 0 8px 25px var(--sombra-media); /* Sombra mais forte */
-    margin-bottom: 50px; /* Mais espaçamento */
-    padding: 40px; /* Mais padding */
-    border-left: 10px solid var(--azul-petroleo); /* Borda mais grossa */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px var(--sombra-media);
+    margin-bottom: 50px;
+    padding: 40px;
+    border-left: 10px solid var(--azul-petroleo);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .phase-card:hover {
-    transform: translateY(-10px); /* Mais deslocamento */
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3); /* Sombra ainda mais forte no hover */
+    transform: translateY(-10px);
+    box-shadow: 0 12px 35px var(--sombra-forte);
 }
 
 .phase-card h3 {
     color: var(--azul-petroleo);
     font-family: 'Montserrat', sans-serif;
-    font-size: 2.2em; /* Aumentado */
+    font-size: 2.2em;
     margin-top: 0;
     margin-bottom: 20px;
     border-left: none;
     padding-left: 0;
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Para alinhar duração à direita */
+    justify-content: space-between;
 }
 
 .phase-card .phase-duration {
@@ -273,9 +338,10 @@ body {
     color: var(--azul-escuro-texto);
     background-color: var(--azul-bebe);
     padding: 8px 15px;
-    border-radius: 20px; /* Mais arredondado */
+    border-radius: 20px;
     font-weight: 700;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    white-space: nowrap; /* Evita que o texto quebre */
 }
 
 .phase-card .phase-objective {
@@ -286,7 +352,7 @@ body {
 }
 
 .phase-card ul {
-    list-style: none; /* Remove bullet padrão */
+    list-style: none;
     padding-left: 0;
 }
 
@@ -298,13 +364,14 @@ body {
     align-items: flex-start;
 }
 
-.phase-card ul li i { /* Ícones nas listas de fases */
+.phase-card ul li i {
     font-size: 1.4em;
     color: var(--azul-bebe);
     margin-right: 12px;
-    min-width: 25px; /* Garante alinhamento */
+    min-width: 25px;
     text-align: center;
-    padding-top: 2px; /* Ajuste vertical */
+    padding-top: 2px;
+    flex-shrink: 0;
 }
 
 /* Descrição de Seção */
@@ -324,7 +391,7 @@ body {
     background-color: var(--azul-petroleo);
     color: var(--branco);
     text-align: center;
-    padding: 40px 0; /* Mais padding */
+    padding: 40px 0;
     margin-top: 60px;
     font-size: 0.95em;
     box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
@@ -343,16 +410,27 @@ body {
     }
     .phase-card h3 {
         font-size: 1.8em;
-        flex-direction: column; /* Empilha título e duração */
+        flex-direction: column;
         align-items: flex-start;
     }
     .phase-card .phase-duration {
         margin-left: 0;
         margin-top: 10px;
     }
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .company-logo {
+        max-height: 60px;
+    }
 }
 
 @media (max-width: 768px) {
+    .main-header {
+        padding: 40px 0;
+        min-height: 150px;
+    }
     .main-header h1 {
         font-size: 2em;
     }
